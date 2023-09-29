@@ -35,6 +35,9 @@ const calculateWinner=(squares)=>{
 function Board(){
     const [squares,setSquares]=useState(Array(9).fill(null))
     const nextLetter=getNextLetter(squares)
+    const buttonClickHandler=()=>{
+        setSquares(Array(9).fill(null))
+    }
     let titleStatus
     const winner=calculateWinner(squares)
     titleStatus=winner?`${winner} is Winner`:`Next Player is ${nextLetter}`
@@ -65,6 +68,7 @@ function Board(){
                 <Square value={squares[7]} index={7} onClick={clickHander}/>
                 <Square value={squares[8]} index={8} onClick={clickHander}/>
             </div>
+            <button className="button" onClick={buttonClickHandler}>restart</button>
         </>
     )
 }
